@@ -1,5 +1,6 @@
 import numpy as np
-# import statistics
+import math
+import statistics
 
 
 # statistics.mean()
@@ -15,6 +16,23 @@ def median(numbers):
         return (numbers[int(m) - 1] + numbers[int(m)]) / 2
     else:
         return numbers[int(m)]
+
+
+# statistics.variance()
+def variance(numbers):
+    m = mean(numbers)
+    sum = 0
+
+    for value in numbers:
+        sum += (value-m)**2
+
+    return sum/(len(numbers)-1)
+
+
+# statistics.stdev()
+def standard_deviation(numbers):
+    v = variance(numbers)
+    return math.sqrt(v)
 
 
 # statistics.mode()
@@ -46,9 +64,11 @@ def main():
     r = np.array(r)
     r = r.astype("float")
     r = np.sort(r)
+
     print("%.1f" % mean(r))
     print("%.1f" % median(r))
-    print(mode(r))
+    print("%.1f" % mode(r))
+    print("%.1f" % standard_deviation(r))
 
 
 if __name__ == "__main__":
