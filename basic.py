@@ -55,6 +55,18 @@ def mode(numbers):
     return mode_v
 
 
+# statistics.quartiles()
+def quartiles(numbers):
+
+    q = []
+    l = int(len(numbers) / 2)
+    q.append(median(numbers[0:l]))
+    q.append(median(numbers))
+    q.append(median(numbers[l + 1:len(numbers)]))
+
+    return q
+
+
 def main():
     n = int(input())
 
