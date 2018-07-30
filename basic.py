@@ -62,7 +62,8 @@ def quartiles(numbers):
     l = int(len(numbers) / 2)
     q.append(median(numbers[0:l]))
     q.append(median(numbers))
-    q.append(median(numbers[l + 1:len(numbers)]))
+    l = l if len(numbers) % 2 == 0 else (l + 1)
+    q.append(median(numbers[l:]))
 
     return q
 
